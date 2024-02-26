@@ -4,7 +4,11 @@ import bittensor as bt
 from rich.console import Console
 import bitagent
 import httpx
-
+# Bittensor Miner Template:
+import bitagent
+# Sync calls set weights and also resyncs the metagraph.
+from common.utils.config import add_args as util_add_args
+from common.utils.config import config as util_config
 rich_console = Console()
 
 # import base miner class which takes care of most of the boilerplate
