@@ -25,8 +25,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 def miner_init(self, config=None):
     transformers.logging.set_verbosity_error()
-    tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-xxl")
-    model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-xxl", device_map="auto", load_in_8bit=True)
+    self.tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-xxl")
+    self.model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-xxl", device_map="auto", load_in_8bit=True)
 
     def llm(input_text):
         input_ids = self.tokenizer(input_text, return_tensors="pt").input_ids.to(self.device)
