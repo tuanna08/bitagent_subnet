@@ -4,17 +4,14 @@ import bittensor as bt
 from rich.console import Console
 from typing import List, Tuple
 import bitagent
-import httpx  # Import the HTTP client library
-from common.utils.config import add_args as util_add_args
-from common.utils.config import config as util_config
+import httpx
 
 rich_console = Console()
 
-class Miner(bitagent.BaseMinerNeuron):
+class Miner(bitagent.BaseMiner):
 
     @classmethod
     def add_args(cls, parser: bt.parser.ArgumentParser):
-        util_add_args(cls, parser)
         parser.add_argument(
             "--miner",
             type=str,
@@ -29,7 +26,7 @@ class Miner(bitagent.BaseMinerNeuron):
             {'forward': self.forward_for_alive, 'blacklist': self.blacklist_for_alive, 'priority': self.priority_for_alive},
         ]
         if not config:
-            config = util_config(self)
+            config = self.default_config()
 
         super(Miner, self).__init__(config=config)
 
