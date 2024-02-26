@@ -8,7 +8,7 @@ import httpx
 
 rich_console = Console()
 
-class Miner(bitagent.BaseMiner):
+class Miner(bitagent.BaseNeuron):
 
     @classmethod
     def add_args(cls, parser: bt.parser.ArgumentParser):
