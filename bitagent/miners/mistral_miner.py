@@ -17,7 +17,7 @@
 # DEALINGS IN THE SOFTWARE.
 
 import bitagent
-# import transformers
+import transformers
 from common.base.miner import BaseMinerNeuron
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 from bitagent.miners.context_util import get_relevant_context_and_citations_from_synapse
