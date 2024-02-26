@@ -19,6 +19,13 @@ from common.base.miner import BaseMinerNeuron
 rich_console = Console()
 
 class Miner(BaseMinerNeuron):
+    """
+    BitAgent miner neuron class. You may also want to override the blacklist and priority functions according to your needs.
+
+    This class inherits from the BaseMinerNeuron class, which in turn inherits from BaseNeuron. The BaseNeuron class takes care of routine tasks such as setting up wallet, subtensor, metagraph, logging directory, parsing config, etc. You can override any of the methods in BaseNeuron if you need to customize the behavior.
+
+    This class provides reasonable default behavior for a miner such as blacklisting unrecognized hotkeys, prioritizing requests based on stake, and forwarding requests to the forward function. Modify, if you need to define custom capability.
+    """
 
     @classmethod
     def add_args(cls, parser: argparse.ArgumentParser):
