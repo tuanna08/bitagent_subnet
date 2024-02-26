@@ -7,4 +7,5 @@ __spec_version__ = (
 )
 from . import mock_miner
 from . import t5_miner
-from .import mistral_miner
+from . import mistral_miner
+from . import t5_xxl_miner
