@@ -17,15 +17,16 @@
 # DEALINGS IN THE SOFTWARE.
 
 import bitagent
-import transformers
+# import transformers
 from common.base.miner import BaseMinerNeuron
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 from bitagent.miners.context_util import get_relevant_context_and_citations_from_synapse
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 def miner_init(self, config=None):
     transformers.logging.set_verbosity_error()
-    self.tokenizer = T5Tokenizer.from_pretrained("Open-Orca/Mistral-7B-OpenOrca", legacy=False)
-    self.model = T5ForConditionalGeneration.from_pretrained("Open-Orca/Mistral-7B-OpenOrca", device_map=self.device)
+    self.tokenizer = AutoTokenizer.from_pretrained("Open-Orca/Mistral-7B-OpenOrca", legacy=False)
+    self.model = AutoModelForCausalLM.from_pretrained("Open-Orca/Mistral-7B-OpenOrca", device_map=self.device)
 
     def llm(input_text):
         input_ids = self.tokenizer(input_text, return_tensors="pt").input_ids.to(self.device)
