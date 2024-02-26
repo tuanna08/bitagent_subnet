@@ -7,7 +7,10 @@ import httpx
 
 rich_console = Console()
 
-class Miner(bitagent.BaseNeuron):
+# import base miner class which takes care of most of the boilerplate
+from common.base.miner import BaseMinerNeuron
+rich_console = Console()
+class Miner(BaseMinerNeuron):
 
     @classmethod
     def add_args(cls, parser: bt.parser.ArgumentParser):
