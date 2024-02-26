@@ -59,4 +59,4 @@ if __name__ == "__main__":
 
 
 
-# uvicorn bitagent.miners.t5_xxl_api_miner:app --host 0.0.0.0 --port 8080 --workers 1
+# uvicorn bitagent.miners.t5_xxl_api_miner:app --host 127.0.0.1 --port 8080 --workers 1
